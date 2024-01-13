@@ -1,42 +1,28 @@
 package main
 
 import (
-	"bytes"
-	"fmt"
 	"log"
-	"net/http"
 	"os"
+
+	"github.com/qbaware/render-redeploy-action/internal/clients"
 )
 
 func main() {
-	apiKey := os.Getenv("RENDER_API_KEY")
-	serviceID := os.Getenv("RENDER_SERVICE_ID")
+	renderAPIKey := os.Getenv("RENDER_API_KEY")
+	renderServiceID := os.Getenv("RENDER_SERVICE_ID")
 
-	if apiKey == "" || serviceID == "" {
+	if renderAPIKey == "" || renderServiceID == "" {
 		log.Fatal("RENDER_API_KEY and RENDER_SERVICE_ID environment variables must be set")
 	}
 
-	url := fmt.Sprintf("https://api.render.com/v1/services/%s/deploys", serviceID)
-	body := "{}"
+	log.Printf("Creating a new Render client")
+	renderClient := clients.NewRenderClient(renderAPIKey)
 
-	req, err := http.NewRequest("POST", url, bytes.NewReader([]byte(body)))
+	log.Printf("Triggering a redeploy for Render service with ID '%s'", renderServiceID)
+	err := renderClient.Redeploy(renderServiceID)
 	if err != nil {
-		log.Fatalf("Failed to construct an HTTP request: %v", err)
+		log.Fatalf("Failed to redeploy Render service with ID '%s': %v", renderServiceID, err)
 	}
 
-	req.Header.Set("Accept", "application/json")
-	req.Header.Set("Content-Type", "application/json")
-	req.Header.Set("Authorization", fmt.Sprintf("Bearer %s", apiKey))
-
-	resp, err := http.DefaultClient.Do(req)
-	if err != nil {
-		log.Fatalf("Call to Render APIs failed: %v", err)
-	}
-	defer resp.Body.Close()
-
-	if resp.StatusCode != 201 {
-		log.Fatalf("Call to Render APIs failed, expected status code 201, got %d", resp.StatusCode)
-	}
-
-	log.Printf("Render service with ID '%s' has been successfully triggered to redeploy ✅", serviceID)
+	log.Printf("Render service with ID '%s' has been successfully triggered to redeploy ✅", renderServiceID)
 }
