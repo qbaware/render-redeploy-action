@@ -1,6 +1,9 @@
 name: Render Redeploy Action
 description: Simple GitHub Action that redeploys Render applications
 author: Qbaware
+branding:
+  icon: refresh-cw
+  color: white
 
 inputs:
   render-api-key:
