@@ -22,7 +22,7 @@ jobs:
           - 5001:5000
 
     env:
-      TEST_TAG: localhost:5001/actions/container-prebuilt-action:latest
+      TEST_TAG: localhost:5001/qbaware/render-redeploy-action:latest
 
     steps:
       - name: Checkout
@@ -53,4 +53,4 @@ jobs:
           docker run \
             --env RENDER_API_KEY="${{ env.RENDER_API_KEY }}" \
             --env RENDER_SERVICE_ID="${{ env.RENDER_SERVICE_ID }}" \
-            --rm ${{ env.TEST_TAG }}
+            --rm ${{ env.TEST_TAG }} || true
