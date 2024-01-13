@@ -14,10 +14,9 @@ outputs:
   status:
     description: Whether the redeployment was successful or not
 
-# TODO: Update the image tag below.
 runs:
   using: docker
-  image: docker://ghcr.io/qbaware/render-redeploy-action:latest
+  image: docker://ghcr.io/qbaware/render-redeploy-action:0.1.0
   env:
     RENDER_API_KEY: ${{ secrets.RENDER_API_KEY }}
     RENDER_SERVICE_ID: ${{ secrets.RENDER_SERVICE_ID }}
