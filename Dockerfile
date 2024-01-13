@@ -8,6 +8,6 @@ RUN go mod download
 
 COPY ./src/ .
 
-RUN go build -o app ./main.go
+RUN go build -o /app/main /app/main.go
 
-ENTRYPOINT [ "./app" ] 
+ENTRYPOINT [ "/app/main" ] 
