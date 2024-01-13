@@ -32,7 +32,10 @@ Add the following `deploy` job in your Action.
 
 ``` yaml
 deploy:
-  needs: docker-images # Assuming this job builds the Docker images, we define a dependency on it.
+  # Assuming the `docker-images` job builds the Docker images,
+  # we define a dependency on it.
+  needs: docker-images 
+
   runs-on: ubuntu-latest
   steps:
     - name: Deploy to Render
