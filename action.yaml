@@ -1,0 +1,23 @@
+name: Render Redeploy Action
+description: Simple GitHub Action that redeploys Render applications
+author: Qbaware
+
+inputs:
+  render-api-key:
+    description: Render API key
+    required: true
+  render-service-id:
+    description: Render service ID
+    required: true
+
+outputs:
+  status:
+    description: Whether the redeployment was successful or not
+
+# TODO: Update the image tag below.
+runs:
+  using: docker
+  image: docker://ghcr.io/qbaware/render-redeploy-action:latest
+  env:
+    RENDER_API_KEY: ${{ secrets.RENDER_API_KEY }}
+    RENDER_SERVICE_ID: ${{ secrets.RENDER_SERVICE_ID }}
