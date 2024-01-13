@@ -1,11 +1,13 @@
-# Set the base image to use for subsequent instructions.
-FROM alpine:3.19
+FROM golang:1.21
 
-# Set the working directory inside the container.
-WORKDIR /usr/src
+WORKDIR /app
 
-# Copy any source file(s) required for the action.
-COPY entrypoint.sh .
+COPY ./src/go.mod ./src/go.sum ./
 
-# Configure the container to be run as an executable.
-ENTRYPOINT ["/usr/src/entrypoint.sh"]
+RUN go mod download
+
+COPY ./src/ .
+
+RUN go build -o app ./main.go
+
+ENTRYPOINT [ "./app" ] 
