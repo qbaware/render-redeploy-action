@@ -4,7 +4,7 @@ import (
 	"log"
 	"os"
 
-	"github.com/qbaware/render-redeploy-action/internal/clients"
+	"github.com/qbaware/render-redeploy-action/internal/render"
 )
 
 func main() {
@@ -16,7 +16,7 @@ func main() {
 	}
 
 	log.Printf("Creating a new Render client")
-	renderClient := clients.NewRenderClient(renderAPIKey)
+	renderClient := render.NewClient(renderAPIKey)
 
 	log.Printf("Triggering a redeploy for Render service with ID '%s'", renderServiceID)
 	err := renderClient.Redeploy(renderServiceID)
