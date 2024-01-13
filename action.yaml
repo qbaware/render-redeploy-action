@@ -16,7 +16,7 @@ outputs:
 
 runs:
   using: docker
-  image: docker://ghcr.io/qbaware/render-redeploy-action:latest
+  image: Dockerfile
   env:
     RENDER_API_KEY: ${{ inputs.render-api-key }}
     RENDER_SERVICE_ID: ${{ inputs.render-service-id }}
