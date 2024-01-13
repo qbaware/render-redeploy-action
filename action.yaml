@@ -18,5 +18,5 @@ runs:
   using: docker
   image: docker://ghcr.io/qbaware/render-redeploy-action:0.1.0
   env:
-    RENDER_API_KEY: ${{ secrets.RENDER_API_KEY }}
-    RENDER_SERVICE_ID: ${{ secrets.RENDER_SERVICE_ID }}
+    RENDER_API_KEY: ${{ inputs.render-api-key }}
+    RENDER_SERVICE_ID: ${{ inputs.render-service-id }}
