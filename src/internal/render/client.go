@@ -55,7 +55,7 @@ func (c *Client) Redeploy(serviceID string) error {
 	defer resp.Body.Close()
 
 	if resp.StatusCode != successStatusCode {
-		return errors.Errorf(fmt.Sprintf("call to Render APIs failed, expected status code is %d but got %d", successStatusCode, resp.StatusCode))
+		return errors.Errorf("call to Render APIs failed, expected status code is %d but got %d", successStatusCode, resp.StatusCode)
 	}
 
 	return nil
