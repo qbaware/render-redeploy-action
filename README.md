@@ -46,3 +46,7 @@ deploy:
 ```
 
 ### That's It 🎉
+
+### Sample Workflow View
+
+![Sample workflow](/resources/sample-workflow.png)
