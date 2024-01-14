@@ -32,6 +32,8 @@ solutions. -->
 
 Before submitting the PR, make sure the following are checked:
 
+- [ ] Version file (/.version) is updated according to the
+[Semantic Version](https://semver.org/) rules.
 - [ ] This Pull Request is related to one change.
 Changes that are unrelated should be opened in separate PRs.
 - [ ] Commit message has a detailed description of what changed and why.
