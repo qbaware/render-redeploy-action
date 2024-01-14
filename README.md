@@ -47,6 +47,6 @@ deploy:
 
 ### That's It 🎉
 
-### It Should Look Like This
+### Sample Workflow View
 
-<img width="1336" alt="image" src="https://github.com/qbaware/render-redeploy-action/assets/9533366/cbda6fde-d850-49ef-b019-9ad39df2feec">
+![Sample workflow](/resources/sample-workflow.png)
