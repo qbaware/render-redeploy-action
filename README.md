@@ -1,6 +1,5 @@
 # ![Image](/resources/render-logo-small.png) Render Redeploy Action
 
-[![GitHub Super-Linter](https://github.com/qbaware/render-redeploy-action/actions/workflows/linter.yml/badge.svg)](https://github.com/super-linter/super-linter)
 ![CI](https://github.com/qbaware/render-redeploy-action/actions/workflows/ci.yml/badge.svg)
 ![CD](https://github.com/qbaware/render-redeploy-action/actions/workflows/cd.yml/badge.svg)
 
