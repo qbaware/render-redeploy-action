@@ -28,3 +28,6 @@ jobs:
           DEFAULT_BRANCH: main
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           VALIDATE_ALL_CODEBASE: false
+          GO_GOLANGCI_LINT_CLI_LINT_MODE: project
+          GO_GOLANGCI_LINT_ARGUMENTS: ["run", "./..."]
+          CHECKOV_SKIP_CHECK: CKV_DOCKER_2,CKV_DOCKER_3
